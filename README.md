@@ -8,4 +8,6 @@ To replicate the issue:
 4. Run `yarn dev`
 5. Open localhost in the browser
 
+Find the relevant code in `src/pages/index.tsx`.
+
 Thanks!
