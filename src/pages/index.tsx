@@ -1,4 +1,20 @@
-import { SlDropdown } from './SlComponents';
+import dynamic from 'next/dynamic';
+
+const SlDropdown = dynamic(() => import('@shoelaceDist/react/dropdown'), {
+  ssr: false,
+});
+const SlButton = dynamic(() => import('@shoelaceDist/react/button'), {
+  ssr: false,
+});
+const SlMenu = dynamic(() => import('@shoelaceDist/react/menu'), {
+  ssr: false,
+});
+const SlMenuItem = dynamic(() => import('@shoelaceDist/react/menu-item'), {
+  ssr: false,
+});
+const SlDivider = dynamic(() => import('@shoelaceDist/react/divider'), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
@@ -11,7 +27,23 @@ export default function Home() {
         Given the Nextjs development environment will produce a popup for any
         uncaught errors, it produces a frustrating development experience.
       </p>
-      <SlDropdown></SlDropdown>
+      <SlDropdown>
+        <SlButton slot="trigger" caret>
+          Dropdown
+        </SlButton>
+        <SlMenu>
+          <SlMenuItem>Dropdown Item 1</SlMenuItem>
+          <SlMenuItem>Dropdown Item 2</SlMenuItem>
+          <SlMenuItem>Dropdown Item 3</SlMenuItem>
+          <SlDivider></SlDivider>
+          <SlMenuItem type="checkbox" checked>
+            Checkbox
+          </SlMenuItem>
+          <SlMenuItem disabled>Disabled</SlMenuItem>
+          <SlDivider></SlDivider>
+          <SlMenuItem>Prefix</SlMenuItem>
+        </SlMenu>
+      </SlDropdown>
     </>
   );
 }
